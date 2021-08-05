@@ -11,45 +11,62 @@ Hanging objects is a common daily task. Our system helps robots learn to hang ar
 - [project page](https://sites.google.com/view/hangingobject/)
 
 
-<!-- ## File Structure
+## File Structure
 
 This repository provides data and code as follows.
 
 
 ```
-    data/                       # contains PartNet data
-        partnet_dataset/		# you need this dataset only if you  want to remake the prepared data
-    prepare_data/				# contains prepared data you need in our exps 
-    							# and codes to generate data
-    	Chair.test.npy			# test data list for Chair (please download the .npy files using the link below)
-    	Chair.val.npy			# val data list for Chair
-    	Chair.train.npy 		# train data list for Chair
-    	...
-        prepare_shape.py				    # prepared data
-    	prepare_contact_points.py			# prepared data for contact points
-    	
-    src/
-    	utils/					# something useful
-    	lin_my/	                # code for all training/testing/evaluation
-            pointnet4/          # code adapted from PointNet++ (https://github.com/charlesq34/pointnet2)
-            ...
-            s1_train_matching.py # code for stage 1 training/evaluation
-            s2a_train.py # code for stage 2a training/evaluation
-            s2b_train_discrete.py # code for stage 2b training/evaluation
-            s3_rl_collect.py # code for stage 3 RL online data collection. also used for stage 3 evaluation
-            s3_rl_train.py # code for stage 3 RL online training
-                
-    		logs/				# contains checkpoints and tensorboard file
-    		models/				# contains model file in our experiments
-    		scripts/			# scrpits to train or test
-    		data_dynamic.py		# code to load data
-    		test_dynamic.py  	# code to test
-    		train_dynamic.py  	# code to train
-    		utils.py
-    environment.yaml			# environments file for conda
-    		
+    data/                       # contains all data. Details explained in Dataset Structure section
+        
+    src/    
+        scripts/                        # contains code used to generate data
+                ...
+                collect_pose_data_vary_scale.py # generates hanging poses
+                generate_takeoff_v2.py          # checks if an object in the hanging pose can be taken off
+                generate_cp_acc_soft.py         # generates soft contact points, given hanging poses
+                generate_partial_pc_soft.py     # generates partial point clouds, given soft contact points
 
-``` -->
+    	utils/					    # something useful
+
+    	lin_my/	                    # training/evaluation 
+            runs/                   # contains saved models, also where models/tensorboards/debugging info are saved during training/evaluation
+
+            pointnet4/              # code adapted from PointNet++ (https://github.com/charlesq34/pointnet2)
+            ...
+            simple_dataset.py       # simple dataset that loads supporting items, objects, and successful hanging poses
+            hang_dataset.py         # dataset that loads supporting items, objects, successful hanging poses,
+                                    # contact points, and contact point correspondences
+            ...
+            s1_train_matching.py    # stage 1 training/evaluation
+            s2a_train.py            # stage 2a training/evaluation
+            s2b_train_discrete.py   # stage 2b training/evaluation
+            s3_rl_collect.py        # stage 3 online data collection. also used for stage 3 evaluation
+            s3_rl_train.py          # stage 3 online training
+
+
+```
+This code has been tested on Ubuntu 16.04 with Cuda 9.0, Python 3.6, and TensorFlow 1.12.
+
+## Dataset Structure
+The dataset is organized as follows.
+
+```
+    data/
+        ...
+        geo_data/                   # urdfs/meshes for objects and supporting items
+        geo_data_partial_cp_pad/    # partial point clouds for objects and supporting items
+        collection_result/          # successful hanging pose
+        collection_result_more/     # more successful hanging pose
+        collection_result_neg/      # unsuccessful hanging pose
+        collection_result_pene_big_neg_new # object poses w/o collision
+        collection_result_pene_big_pos_new # object poses w/ collision
+        dataset_cp/                 # contact points and contact point correspondences for poses in collection_result/
+        dataset_cp_more/            # contact points and contact point correspondences for poses in collection_result_more/
+
+```
+
+
 <!-- 
 This code has been tested on Ubuntu 16.04 with Cuda 10.0.130, GCC 7.5.0, Python 3.7.6 and PyTorch 1.1.0. 
 
