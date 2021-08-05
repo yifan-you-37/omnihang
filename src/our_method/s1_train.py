@@ -359,7 +359,7 @@ def train(args, train_loader, test_loader, writer, result_folder, file_name):
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="../data/hang_data")
+	parser.add_argument("--home_dir_data", default="../data")
 
 	parser.add_argument('--model_name', default='s1_model')
 	parser.add_argument('--comment', default='')

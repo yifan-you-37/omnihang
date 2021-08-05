@@ -531,7 +531,7 @@ def train(args, train_set, train_loader, test_set, test_loader, writer, result_f
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="../data/hang_data")
+	parser.add_argument("--home_dir_data", default="../data")
 
 	parser.add_argument('--model_name', default='s3_rl_collect')
 	parser.add_argument('--comment', default='')
