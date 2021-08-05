@@ -1,4 +1,4 @@
-# Generative 3D Part Assembly via Dynamic Graph Learning
+# OmniHang: Learning to Hang Arbitrary Objects using Contact Point Correspondences and Neural Collision Estimation
 
 This is the implementation of ICRA 2021 paper "OmniHang: Learning to Hang Arbitrary Objects using Contact Point Correspondences and Neural Collision Estimation" created by 
 Yifan You*, <a href="https://linsats.github.io/" target="_blank">Lin Shao*</a>, Toki Migimatsu, and <a href="https://web.stanford.edu/~bohg/" target="_blank">Jeannette Bohg</a>.
