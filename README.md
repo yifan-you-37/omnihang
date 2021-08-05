@@ -28,9 +28,17 @@ This repository provides data and code as follows.
         prepare_shape.py				    # prepared data
     	prepare_contact_points.py			# prepared data for contact points
     	
-    exps/
+    src/
     	utils/					# something useful
-    	dynamic_graph_learning/	# our experiments code
+    	lin_my/	                # code for all training/testing/evaluation
+            pointnet4/          # code adapted from PointNet++ (https://github.com/charlesq34/pointnet2)
+            ...
+            s1_train_matching.py # code for stage 1 training/evaluation
+            s2a_train.py # code for stage 2a training/evaluation
+            s2b_train_discrete.py # code for stage 2b training/evaluation
+            s3_rl_collect.py # code for stage 3 RL online data collection. also used for stage 3 evaluation
+            s3_rl_train.py # code for stage 3 RL online training
+                
     		logs/				# contains checkpoints and tensorboard file
     		models/				# contains model file in our experiments
     		scripts/			# scrpits to train or test
