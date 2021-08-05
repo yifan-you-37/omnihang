@@ -30,7 +30,7 @@ This repository provides data and code as follows.
     	utils/					    # something useful
 
     	lin_my/	                    # training/evaluation 
-            runs/                   # contains saved models, also where models/tensorboards/debugging info are saved during training/evaluation
+            runs/                   # contains pretrained models, also where models/tensorboards/debugging info are saved during training/evaluation
 
             pointnet4/              # code adapted from PointNet++ (https://github.com/charlesq34/pointnet2)
             ...
@@ -66,44 +66,12 @@ The dataset is organized as follows.
 
 ```
 
-
-<!-- 
-This code has been tested on Ubuntu 16.04 with Cuda 10.0.130, GCC 7.5.0, Python 3.7.6 and PyTorch 1.1.0. 
-
-Download the [pre-processed data](http://download.cs.stanford.edu/orion/genpartass/prepare_data.zip) for the .npy data files in file prepare_data/
-
-
 ## Dependencies
 
-Please run
-    
+This repo requires building PointNet++(https://github.com/charlesq34/pointnet2) in `src/lin_my/pointnet4/`. Please refer to PointNet++'s repo for building instructions.
 
-        conda env create -f environment.yaml
-        . activate PartAssembly
-        cd exps/utils/cd
-        python setup.py build
+## Downloading Dataset and Pretrained Models
 
-to install the dependencies.
-
-## Quick Start
-
-Download [pretrained models](http://download.cs.stanford.edu/orion/genpartass/checkpoints.zip) and unzip under the root directory.
-
-### Train the model
-
-Simply run
-
-        cd exps/dynamic_graph_learning/scripts/
-        ./train_dynamic.sh
-        
-### Test the model
-
-modify the path of the model in the test_dynamic.sh file
-
-run
-
-        cd exps/dynamic_graph_learning/scripts/
-        ./test_dynamic.sh -->
 
 ## Questions
 
