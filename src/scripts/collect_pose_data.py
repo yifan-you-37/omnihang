@@ -203,7 +203,7 @@ class PoseDataCollector:
 					break
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifany/")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument('--hook_category')
 	parser.add_argument('--object_category')
 	parser.add_argument('--bullet_gui', action='store_true')

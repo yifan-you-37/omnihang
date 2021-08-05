@@ -96,7 +96,7 @@ def process_and_filter_one_pose(result_data, result_folder_dir, result_file_name
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang/")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--use_labeled_data", action='store_true')
 	parser.add_argument("--sherlock", action='store_true')
 	parser.add_argument("--hook_name", default='')

@@ -19,8 +19,8 @@ class MyDataset(Dataset):
 		self.use_partial_pc = use_partial_pc
 		self.is_train = is_train
 		self.overfit = args.overfit
-		self.one_pose = args.data_one_pose
-		self.vary_scale = args.data_vary_scale
+		self.one_pose = False
+		self.vary_scale = False
 		self.more_pose = args.data_more_pose
 		self.vary_scale_more_pose = args.data_vary_scale_more_pose
 		self.restrict_object_cat = args.restrict_object_cat
@@ -434,7 +434,7 @@ if __name__ == "__main__":
 	import torch
 	torch.manual_seed(2)
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument('--bohg4', action='store_true')
 
 	parser.add_argument('--pointset_dir', default='/scr2/')

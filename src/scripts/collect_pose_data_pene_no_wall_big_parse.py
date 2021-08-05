@@ -29,7 +29,7 @@ def dict_to_csv(out_dir, all_data):
 		
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--hook_name", default='')
 	parser.add_argument("--sherlock", action='store_true')
 	parser.add_argument("--obj_cat_split_id", type=int, default=-1)

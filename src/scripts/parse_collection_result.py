@@ -17,7 +17,7 @@ import bullet_client as bc
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifany/")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument('--hook_category', default=None)
 	parser.add_argument('--object_category', default=None)
 	parser.add_argument('--use_collection_visualize', action='store_true')

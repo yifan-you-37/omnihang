@@ -4,7 +4,7 @@ import numpy as np
 import sys
 import random
 # from contact_point_dataset_torch_multi_label import MyDataset 
-from cp_dataset_multi_label_multi_scale import MyDataset 
+from hang_dataset import MyDataset 
 import os
 import time
 import argparse
@@ -128,16 +128,8 @@ def train(args, train_loader, test_loader, writer, result_folder, file_name):
 			pc_combined = create_pc_combined_batch(pc_o, pc_h, pred_transl, pred_aa, aa=True)
 
 			min_pose_idx_s2 = np.ones((b_size, 2), dtype=np.int32) * -1
-			min_pose_loss_l2 = np.zeros((b_size))
 
-			if args.pose_loss_l2:
-				for ii in range(b_size):
-					n_pose_tmp = int(n_pose[ii])
-					pose_loss_tmp = pose_loss_l2(pc_o[ii], pred_transl[ii], pred_aa[ii], gt_pose[ii][:n_pose_tmp, :3], gt_pose[ii][:n_pose_tmp, 3:])
-					min_pose_idx_s2[ii][1] = np.argmin(pose_loss_tmp)
-					min_pose_loss_l2[ii] = pose_loss_tmp[min_pose_idx_s2[ii][1]]
-			else:
-				min_pose_idx_s2 = min_pose_idx
+			min_pose_idx_s2 = min_pose_idx
 			gt_min_pose_s2 = np.squeeze(np.take_along_axis(gt_pose, np.expand_dims(min_pose_idx_s2[:, 1:], axis=1), axis=1), axis=1)
 			angle_diff_min_pose_s2 = np.mean(angle_diff_batch(gt_min_pose_s2[:, 3:], pred_aa, aa=True, degree=True))
 
@@ -192,7 +184,6 @@ def train(args, train_loader, test_loader, writer, result_folder, file_name):
 				'loss_aa_sqrt': np.sqrt(np.mean(loss_aa_val)),
 				'angle_diff': angle_diff,
 				'angle_diff_min_pose_s2': angle_diff_min_pose_s2,
-				'l2_loss_min_pose_s2': np.mean(min_pose_loss_l2),
 			}
 			loss_tracker.add_dict(loss_dict)
 
@@ -250,13 +241,8 @@ def train(args, train_loader, test_loader, writer, result_folder, file_name):
 					# angle_diff = np.mean(angle_diff_batch(gt_min_pose[:, 3:], pred_aa, aa=True, degree=True))
 
 					min_pose_idx_s2 = np.ones((b_size, 2), dtype=np.int32) * -1
-					if args.pose_loss_l2:
-						for ii in range(b_size):
-							n_pose_tmp = int(n_pose[ii])
-							pose_loss_tmp = pose_loss_l2(pc_o[ii], pred_transl[ii], pred_aa[ii], gt_pose[ii][:n_pose_tmp, :3], gt_pose[ii][:n_pose_tmp, 3:])
-							min_pose_idx_s2[ii][1] = np.argmin(pose_loss_tmp)
-					else:
-						min_pose_idx_s2 = min_pose_idx
+
+					min_pose_idx_s2 = min_pose_idx
 					gt_min_pose_s2 = np.squeeze(np.take_along_axis(gt_pose, np.expand_dims(min_pose_idx_s2[:, 1:], axis=1), axis=1), axis=1)
 
 					pc_combined = create_pc_combined_batch(pc_o, pc_h, pred_transl, pred_aa, aa=True)
@@ -324,17 +310,13 @@ def train(args, train_loader, test_loader, writer, result_folder, file_name):
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="'/scr1/new_hang'")
-	parser.add_argument('--pointset_dir', default='/scr2/')
-	parser.add_argument('--bohg4', action='store_true')
-	parser.add_argument('--no_vis', action='store_true')
+	parser.add_argument("--home_dir_data", default="../data")
 
 	parser.add_argument('--model_name', default='s2a_model')
 	parser.add_argument('--comment', default='')
 	parser.add_argument('--exp_name', default='exp_s2a')
 	parser.add_argument('--debug', action='store_true')
 	parser.add_argument('--log_freq', type=int, default=2)
-
 
 	parser.add_argument('--train_list', default='train_list')
 	parser.add_argument('--test_list', default='test_list')
@@ -344,8 +326,8 @@ if __name__ == '__main__':
 	parser.add_argument('--no_save', action='store_true')
 	parser.add_argument('--overfit', action='store_true')
 	parser.add_argument('--no_softmax', action='store_true')
-	parser.add_argument('--restore_model_name', default='')
-	parser.add_argument('--restore_model_epoch', type=int, default=-1)
+	parser.add_argument('--restore_model_name', default='s2a_model')
+	parser.add_argument('--restore_model_epoch', type=int, default=60000)
 	parser.add_argument('--max_epochs', type=int, default=10000)
 	parser.add_argument('--eval_epoch_freq', type=int, default=1)
 	parser.add_argument('--eval_sample_n', type=int, default=5)
@@ -353,36 +335,22 @@ if __name__ == '__main__':
 	parser.add_argument('--no_eval', action='store_true')
 
 	parser.add_argument('--pretrain_s1', action='store_true')
-	parser.add_argument('--s1_hungarian', action='store_true')
 	parser.add_argument('--pretrain_s1_exp_name', default='exp_s1')
-	parser.add_argument('--pretrain_s1_model_name', default='Jan22_18-26-19_s1_multi_label_model_loss_transl_const_1000')
-	parser.add_argument('--pretrain_s1_epoch', default=30000, type=int)
+	parser.add_argument('--pretrain_s1_model_name', default='s1_model')
+	parser.add_argument('--pretrain_s1_epoch', default=40500, type=int)
 
-	parser.add_argument('--loss_transl_const', default=1)
+	parser.add_argument('--loss_transl_const', default=1000)
 
-	parser.add_argument('--data_one_pose', action='store_true')
-	parser.add_argument('--data_vary_scale', action='store_true')
 	parser.add_argument('--data_more_pose', action='store_true')
-	parser.add_argument('--data_vary_scale_more_pose', action='store_true')
 
 	parser.add_argument('--batch_size', type=int, default=32)
 	parser.add_argument('--z_dim', type=int, default=32)
 
-	parser.add_argument('--pose_loss_l2', action='store_true')
-
 	parser.add_argument('--learning_rate', type=float, default=1e-4)
 
 	args = parser.parse_args()
+	args.home_dir_data = os.path.abspath(args.home_dir_data)
 	args.data_more_pose = True
-
-	if args.s1_hungarian:
-		assert args.pretrain_s1
-		args.pretrain_s1_model_name = 'Jan22_18-32-14_s1_matching_model'
-		args.pretrain_s1_epoch = 41100
-	if args.bohg4:
-		args.pointset_dir = '/scr1/yifan'
-		args.no_vis = True
-		args.home_dir_data = '/scr1/yifan/hang'
 
 	file_name = "{}".format(args.model_name)
 	file_name += '_{}'.format(args.restrict_object_cat) if args.restrict_object_cat != '' else ''

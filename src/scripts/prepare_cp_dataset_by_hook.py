@@ -19,7 +19,7 @@ from coord_helper import *
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/juno/downloads/new_hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--hook_name", default='')
 	parser.add_argument("--obj_cat_split_id", type=int, default=-1)
 	args = parser.parse_args()

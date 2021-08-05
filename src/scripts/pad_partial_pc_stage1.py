@@ -48,7 +48,7 @@ def get_partial_idx(cp_idx, partial_pc_idx):
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--hook_name", default='')
 	parser.add_argument("--object_cat", default='')
 	parser.add_argument("--start_id", type=int)

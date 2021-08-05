@@ -283,7 +283,7 @@ class PoseDataCollector:
 		return output_arr
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument('--hook_name')
 	parser.add_argument('--object_category')
 	parser.add_argument('--object_name', default='')

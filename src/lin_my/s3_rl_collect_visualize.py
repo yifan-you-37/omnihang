@@ -15,7 +15,7 @@ except:
 np.random.seed(2)
 
 # from contact_point_dataset_torch_multi_label import MyDataset 
-from cp_dataset_multi_label_multi_scale import MyDataset 
+from hang_dataset import MyDataset 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UTILS_DIR = os.path.abspath(os.path.join(BASE_DIR, '..', 'utils'))
@@ -86,7 +86,7 @@ def bullet_check(bi, bullet_check_one_pose, transl, aa, p_list, result_file_name
 	return flag, final_pose[:3], final_pose[3:]
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--exp_name", default="")
 	parser.add_argument("--eval_epoch", type=int, default=-1)
 	parser.add_argument("--eval_ct", type=int, default=-1)

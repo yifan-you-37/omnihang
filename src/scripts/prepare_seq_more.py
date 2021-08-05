@@ -14,7 +14,7 @@ import bullet_client as bc
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--pose_folder_name", default='collection_result')
 	args = parser.parse_args()
 

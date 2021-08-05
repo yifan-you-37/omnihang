@@ -26,7 +26,7 @@ except:
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--cp", action='store_true')
 	parser.add_argument("--single", action='store_true')
 	parser.add_argument("--pose", action='store_true')

@@ -4,7 +4,7 @@ import numpy as np
 import sys
 import random
 # from contact_point_dataset_torch_multi_label import MyDataset 
-from cp_dataset_multi_label_multi_scale import MyDataset 
+from hang_dataset import MyDataset 
 import os
 import time
 import argparse
@@ -384,12 +384,9 @@ def train(args, train_loader, test_loader, writer, result_folder, file_name):
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="'/scr1/new_hang'")
-	parser.add_argument('--pointset_dir', default='/scr2/')
-	parser.add_argument('--bohg4', action='store_true')
-	parser.add_argument('--no_vis', action='store_true')
+	parser.add_argument("--home_dir_data", default="../data")
 
-	parser.add_argument('--model_name', default='s2b_discretize_model')
+	parser.add_argument('--model_name', default='s2b_model')
 	parser.add_argument('--comment', default='')
 	parser.add_argument('--exp_name', default='exp_s2b')
 	parser.add_argument('--debug', action='store_true')
@@ -403,46 +400,35 @@ if __name__ == '__main__':
 	parser.add_argument('--run_test', action='store_true')
 	parser.add_argument('--no_save', action='store_true')
 	parser.add_argument('--overfit', action='store_true')
-	parser.add_argument('--restore_model_name', default='')
-	parser.add_argument('--restore_model_epoch', type=int, default=-1)
+	parser.add_argument('--restore_model_name', default='s2b_model')
+	parser.add_argument('--restore_model_epoch', type=int, default=57000)
 	parser.add_argument('--max_epochs', type=int, default=10000)
 	parser.add_argument('--eval_epoch_freq', type=int, default=1)
 	parser.add_argument('--eval_sample_n', type=int, default=1)
 	parser.add_argument('--model_save_freq', type=int, default=1000)
 	parser.add_argument('--no_eval', action='store_true')
 
-	parser.add_argument('--loss_transl_const', default=1)
+	parser.add_argument('--loss_transl_const', default=1000)
 
-	parser.add_argument('--data_one_pose', action='store_true')
-	parser.add_argument('--data_vary_scale', action='store_true')
 	parser.add_argument('--data_more_pose', action='store_true')
-	parser.add_argument('--data_vary_scale_more_pose', action='store_true')
 
 	parser.add_argument('--batch_size', type=int, default=32)
 	parser.add_argument('--z_dim', type=int, default=32)
 	parser.add_argument('--top_k_o', type=int, default=128)
 	parser.add_argument('--top_k_h', type=int, default=128)
 	parser.add_argument('--n_gt_sample', type=int, default=128)
-	parser.add_argument('--pose_loss_l2', action='store_true')
-
 
 	parser.add_argument('--learning_rate', type=float, default=1e-4)
 
 	parser.add_argument('--pretrain_s2a', action='store_true')
-	# parser.add_argument('--pretrain_s2a_model_name', default='Jan24_00-06-48_s2a_model_normalized_output')
-	# parser.add_argument('--pretrain_s2a_epoch', default=121000, type=int)
 	parser.add_argument('--pretrain_s2a_folder', default='exp_s2a')
-	parser.add_argument('--pretrain_s2a_model_name', default='Jan22_18-24-02_s2a_model')
-	parser.add_argument('--pretrain_s2a_epoch', default=7000, type=int)
+	parser.add_argument('--pretrain_s2a_model_name', default='s2a_model')
+	parser.add_argument('--pretrain_s2a_epoch', default=60000, type=int)
 
 	args = parser.parse_args()
 
+	args.home_dir_data = os.path.abspath(args.home_dir_data)
 	args.data_more_pose = True
-
-	if args.bohg4:
-		args.pointset_dir = '/scr1/yifan'
-		args.no_vis = True
-		args.home_dir_data = '/scr1/yifan/hang'
 
 	file_name = "{}".format(args.model_name)
 	file_name += '_{}'.format(args.restrict_object_cat) if args.restrict_object_cat != '' else ''

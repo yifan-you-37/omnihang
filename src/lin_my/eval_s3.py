@@ -61,7 +61,7 @@ import s3_bullet_checker_eval as bullet_checker_eval
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="'/scr1/new_hang'")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--result_file_dir")
 	parser.add_argument("--result_file_name")
 	parser.add_argument("--output_folder")

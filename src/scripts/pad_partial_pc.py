@@ -31,7 +31,7 @@ from Microwave_Env import RobotEnv
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	args = parser.parse_args()
 
 	data_dir = os.path.join(args.home_dir_data, 'geo_data')

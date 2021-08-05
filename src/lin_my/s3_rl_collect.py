@@ -531,10 +531,7 @@ def train(args, train_set, train_loader, test_set, test_loader, writer, result_f
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="'/scr1/new_hang'")
-	parser.add_argument('--pointset_dir', default='/scr2/')
-	parser.add_argument('--bohg4', action='store_true')
-	parser.add_argument('--no_vis', action='store_true')
+	parser.add_argument("--home_dir_data", default="../data")
 
 	parser.add_argument('--model_name', default='s3_rl_collect')
 	parser.add_argument('--comment', default='')
@@ -627,6 +624,7 @@ if __name__ == '__main__':
 	parser.add_argument('--parallel_id', default=-1, type=int)
 
 	args = parser.parse_args()
+	args.home_dir_data = os.path.abspath(args.home_dir_data)
 
 	args.data_more_pose = True
 
@@ -638,14 +636,6 @@ if __name__ == '__main__':
 	if args.no_bullet_check:
 		args.no_fcl = True
 
-	if args.bohg4:
-		args.pointset_dir = '/scr1/yifan'
-		args.no_vis = True
-		args.home_dir_data = '/scr1/yifan/hang'
-
-	if args.lin:
-		args.s3_train_folder_dir = os.path.abspath('./new_hang_training')
-		print(args.s3_train_folder_dir)
 
 	file_name = "{}".format(args.model_name)
 	file_name += '_{}'.format(args.restrict_object_cat) if args.restrict_object_cat != '' else ''

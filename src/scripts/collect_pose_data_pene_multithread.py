@@ -20,7 +20,7 @@ import obj_file
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifany/")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--no_wall", action='store_true')
 	parser.add_argument("--big", action='store_true')
 	args = parser.parse_args()

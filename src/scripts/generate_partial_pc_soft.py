@@ -111,7 +111,7 @@ def pick_best_partial_pc(p, obj_urdf, obj_pc_n, cp_map, is_hook, obj_scaling, ob
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="/home/yifanyou/hang")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument("--hook_name", default='')
 	parser.add_argument("--object_name", default='')
 	parser.add_argument("--start_id", type=int)

@@ -138,7 +138,7 @@ def train(args, train_loader, test_loader, writer, result_folder, file_name):
 		
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
-	parser.add_argument("--home_dir_data", default="'/scr1/new_hang'")
+	parser.add_argument("--home_dir_data", default="../data")
 	parser.add_argument('--pointset_dir', default='/scr2/')
 	parser.add_argument('--bohg4', action='store_true')
 	parser.add_argument('--no_vis', action='store_true')
