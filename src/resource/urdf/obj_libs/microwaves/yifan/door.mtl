@@ -1,0 +1,143 @@
+# Blender MTL File: 'None'
+# Material Count: 13
+
+newmtl material_0_0.002
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 0.411765 0.411765 0.411765
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl material_0_0.005
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 0.501961 0.501961 0.501961
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.500000
+illum 6
+
+newmtl material_0_0.006
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_1.jpg
+
+newmtl material_0_0.007
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_1.jpg
+
+newmtl material_0_0.009
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_0.jpg
+
+newmtl material_0_0.010
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_1.jpg
+
+newmtl material_0_0.011
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_1.jpg
+
+newmtl material_0_0.012
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_0.jpg
+
+newmtl material_0_0.016
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_0.jpg
+
+newmtl material_0_0.017
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_0.jpg
+
+newmtl material_0_0.021
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_1.jpg
+
+newmtl material_0_0.023
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_1.jpg
+
+newmtl material_0_0.024
+Ns 30.000009
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.066667 0.066667 0.066667
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd /home/yifany/ScaffoldLearning/resource/urdf/obj_libs/microwaves/7310/images/texture_1.jpg
