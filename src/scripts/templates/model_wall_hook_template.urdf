@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<robot name="template_name">
+  <link name='link_wall'>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="wall/wall.obj" />
+      </geometry>
+    </visual>
+    <collision concave='yes'>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="wall/wall.obj" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <link name="link_hook" concave="yes">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="template_obj_name.obj" />
+      </geometry>
+    </visual>
+    <collision concave='yes'>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="template_obj_name.obj" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="wall_to_hook" type="fixed">
+    <parent link="link_wall"/>
+    <child link="link_hook"/>
+    <origin xyz="0.0 0.0 0.0"/>
+  </joint>
+</robot>

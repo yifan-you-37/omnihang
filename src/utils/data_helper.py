@@ -10,9 +10,12 @@ def rep_int(s):
 	except ValueError:
 		return False
 
-def mkdir_if_not(folder_dir):
+def mkdir_if_not(folder_dir, recurse=False):
 	if not os.path.exists(folder_dir):
-		os.mkdir(folder_dir)
+		if not recurse:
+			os.mkdir(folder_dir)
+		else:
+			os.makedirs(folder_dir)
 def comma_separated(arr):
 	return ','.join(['{:.8f}'.format(tmp) for tmp in arr])
 def split_last(tmp):
@@ -118,14 +121,14 @@ def get_urdf_dir_from_cat(cat, cat_dir, urdf_name, use_exclude_txt=True, exclude
 
 	exclude_id_arr = []
 	if use_exclude_txt:
-		assert os.path.exists(exclude_txt_folder_dir)
+		# assert os.path.exists(exclude_txt_folder_dir), exclude_txt_folder_dir
 		exclude_txt_dir = os.path.join(exclude_txt_folder_dir, '{}.txt'.format(cat))
-		assert os.path.isfile(exclude_txt_dir)
+		# assert os.path.isfile(exclude_txt_dir)
 		if os.path.isfile(exclude_txt_dir):
 			exclude_id_arr = read_int_txt(exclude_txt_dir)
 	if use_labels_txt:
 		labels_txt_dir = os.path.join(labels_folder_dir, '{}_rpy_scaling.txt'.format(cat))
-		assert os.path.isfile(labels_txt_dir)
+		# assert os.path.isfile(labels_txt_dir)
 		include_id_arr = load_labels_txt_by_keys(labels_txt_dir, ['id'])[0]
 	urdf_dir = []
 	obj_id_arr = []
@@ -141,7 +144,6 @@ def get_urdf_dir_from_cat(cat, cat_dir, urdf_name, use_exclude_txt=True, exclude
 			continue
 		
 		obj_id = int(obj_folder)
-
 		if use_exclude_txt and obj_id in exclude_id_arr:
 			continue
 		
