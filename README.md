@@ -70,8 +70,24 @@ The dataset is organized as follows.
 
 This repo requires building PointNet++(https://github.com/charlesq34/pointnet2) in `src/lin_my/pointnet4/`. Please refer to PointNet++'s repo for building instructions.
 
-## Downloading Dataset and Pretrained Models
+## Downloading Pretrained Models
 
+To download the pretrained models, run
+```
+wget http://download.cs.stanford.edu/juno/omnihang/zipdir/runs.zip
+```
+unzip the downloaded `runs.zip`, and move `runs/` to `src/lin_my/runs`.
+
+## Downloading Dataset
+
+We split the dataset into several zip files available for download. For all zip files downloaded, unzip the contents and move them under the `data/` folder described in Dataset Structure section.
+```
+wget http://download.cs.stanford.edu/juno/omnihang/data/zipdir/geo_data.zip # contains the geo_data folder
+wget http://download.cs.stanford.edu/juno/omnihang/data/zipdir/collection_result.zip # contains all data related to hanging poses (collection_result/ collection_result_more/, collection_result_neg/, collection_result_pene_big_neg_new/, collection_result_pene_big_pos_new/)
+wget http://download.cs.stanford.edu/juno/omnihang/data/zipdir/dataset_cp.zip # contains all data related to contact points (dataset_cp, dataset_cp_more, and some other auxiliary files)
+wget http://download.cs.stanford.edu/juno/omnihang/data/zipdir/geo_data_partial_cp_pad.zip # contains the geo_data_partial_cp_pad folder
+
+```   
 
 ## Questions
 
