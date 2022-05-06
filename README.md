@@ -106,14 +106,12 @@ Please post issues for questions and more helps on this Github repo page. We enc
       booktitle = {The IEEE Conference on Neural Information Processing Systems (NeurIPS)},
       year = {2020}
   } -->
-    @misc{you2021omnihang,
-      title={OmniHang: Learning to Hang Arbitrary Objects using Contact Point Correspondences and Neural Collision Estimation}, 
-      author={Yifan You and Lin Shao and Toki Migimatsu and Jeannette Bohg},
-      year={2021},
-      eprint={2103.14283},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
-    }
+    @inproceedings{you2021omnihang,
+       title={OmniHang: Learning to Hang Arbitrary Objects Using Contact Point Correspondences and Neural Collision Estimation},
+       author={You, Yifan and Shao, Lin and Migimatsu, Toki and Bohg, Jeannette},
+       booktitle={2021 IEEE International Conference on Robotics and Automation (ICRA)},
+       year={2021},
+       organization={IEEE}}
 
 ## License
 
